@@ -29,7 +29,7 @@ jobs:
            5.0.x
            6.0.x
     - name: Run Microsoft Security DevOps
-      uses: microsoft/security-devops-action@trivy
+      uses: microsoft/security-devops-action@preview
       id: msdo
       with:
          categories: 'image scan'
