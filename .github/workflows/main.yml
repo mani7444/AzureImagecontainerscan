@@ -27,17 +27,7 @@ jobs:
           uses: microsoft/security-devops-action@preview
           id: msdo
 
-      build-secure-and-push:
-      - runs-on: ubuntu-latest
-        steps:
-      - uses: actions/checkout@master
-
-      - run: docker build . -t containerscan24.azurecr.io/tipsandtrickscontainer
-      
-      - uses: Azure/container-scan@v0
-      id: container-scan
-      continue-on-error: true
-      with:
-        image-name: containerscan24.azurecr.io/tipsandtrickscontainer 
+     
+        
     
      
