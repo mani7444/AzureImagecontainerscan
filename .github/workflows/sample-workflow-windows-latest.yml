@@ -41,3 +41,11 @@ jobs:
       with:  
         name: alerts
         path: ${{ steps.msdo.outputs.sarifFile }}
+    - name: image build
+      uses: actions/checkout@master
+    - run: docker build . -t containerscan24.azurecr.io/tipsandtrickscontainer
+    - uses: Azure/container-scan@v0
+      id: container-scan
+      continue-on-error: true
+      with:
+        image-name: containerscan24.azurecr.io/tipsandtrickscontainer 
