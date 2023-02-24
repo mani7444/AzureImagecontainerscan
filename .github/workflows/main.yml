@@ -6,13 +6,13 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    - run: docker build . -t containerscan24.azurecr.io/TipsAndTricksContainer
+    - run: docker build . -t containerscan24.azurecr.io/tipsandtrickscontainer
       
     - uses: Azure/container-scan@v0
       id: container-scan
       continue-on-error: true
       with:
-        image-name: containerscan24.azurecr.io/TipsAndTricksContainer
+        image-name: containerscan24.azurecr.io/tipsandtrickscontainer
     
     - uses: Azure/docker-login@v1
       with:
@@ -20,4 +20,4 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
-    - run: docker push containerscan24.azurecr.io/TipsAndTricksContainer       
+    - run: docker push containerscan24.azurecr.io/tipsandtrickscontainer       
