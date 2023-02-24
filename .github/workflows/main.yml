@@ -20,4 +20,11 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
-    - run: docker push containerscan24.azurecr.io/tipsandtrickscontainer       
+    - run: docker push containerscan24.azurecr.io/tipsandtrickscontainer     
+    
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Microsoft Defender Scan
+      uses: microsoft/Defender-Hello-World@v1.0.0
+      with:
+        path: .
