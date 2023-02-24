@@ -12,7 +12,7 @@ jobs:
       id: container-scan
       continue-on-error: true
       with:
-        image-name: containerscan24.azurecr.io/tipsandtrickscontainer
+        image-name: containerscan24.azurecr.io/tipsandtrickscontainer 
     
     - uses: Azure/docker-login@v1
       with:
