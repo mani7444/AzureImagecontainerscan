@@ -6,21 +6,21 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    - run: docker build . -t tipsandtrickscontainerregistry.azurecr.io/tipsandtrickscontainer:${{ github.sha }}
+    - run: docker build . -t containerscan25.azurecr.io/tipsandtrickscontainer:${{ github.sha }}
       
     - uses: Azure/container-scan@v0
       id: container-scan
       continue-on-error: true
       with:
-        image-name: tipsandtrickscontainerregistry.azurecr.io/tipsandtrickscontainer:${{ github.sha }}
+        image-name: containerscan25.azurecr.io/tipsandtrickscontainer:${{ github.sha }}
     
     - uses: Azure/docker-login@v1
       with:
-        login-server: tipsandtrickscontainerregistry.azurecr.io
+        login-server: containerscan25.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
-    - run: docker push tipsandtrickscontainerregistry.azurecr.io/tipsandtrickscontainer:${{ github.sha }}       
+    - run: docker push containerscan25.azurecr.io/tipsandtrickscontainer:${{ github.sha }}       
 
     - name: Post logs to appinsights
       uses: Azure/publish-security-assessments@v0
