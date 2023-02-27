@@ -12,7 +12,7 @@ jobs:
       id: container-scan
       continue-on-error: true
       with:
-        image-name: containerscan25.azurecr.io/tipsandtrickscontainer:${{ github.sha }} 
+        image-name: containerscan25.azurecr.io/tipsandtrickscontainer:${{ github.sha }}  
     
     - uses: Azure/docker-login@v1
       with:
